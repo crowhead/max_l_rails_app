@@ -6,14 +6,15 @@ before_save :normalize_fields
 
 # Validates name:
   validates :name,
+    uniqueness: {case_sensitive: false},
     presence: true,
     length: {maximum: 50}
 
   # Validates email:
-  # validates :email,
-  #   presence: true,
-  #   uniqueness: {case_sensitive: false},
-  #   format: {with:  /[^@]+@[^@]+/ }
+  validates :email,
+    presence: true,
+    uniqueness: {case_sensitive: false},
+    format: {with:  /[^@]+@[^@]+/ }
 
 
   # Validates password length
