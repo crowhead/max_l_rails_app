@@ -6,7 +6,6 @@ before_save :normalize_fields
 
 # Validates name:
   validates :name,
-    uniqueness: {case_sensitive: false},
     presence: true,
     length: {maximum: 50}
 
@@ -29,6 +28,7 @@ before_save :normalize_fields
       SecureRandom.urlsafe_base64
   end
 
+  # Hash a token:
   def self.hash(token)
     Digest::SHA1.hexdigest(token.to_s)
   end
