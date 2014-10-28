@@ -1,3 +1,7 @@
+class User < ActiveRecord::Base
+  has_many :posts
+
+before_create :create_remember_token
 before_save :normalize_fields
 
 # Validates name:
@@ -6,10 +10,10 @@ before_save :normalize_fields
     length: {maximum: 50}
 
   # Validates email:
-  validates :email,
-    presence: true,
-    uniqueness: {case_sensitive: false},
-    format: {with:  /[^@]+@[^@]+/ }
+  # validates :email,
+  #   presence: true,
+  #   uniqueness: {case_sensitive: false},
+  #   format: {with:  /[^@]+@[^@]+/ }
 
 
   # Validates password length
@@ -36,7 +40,7 @@ before_save :normalize_fields
 
   # Normalize fields for consistency
   def normalize_fields
-    self.email.downcase!
+    # self.email.downcase!
   end
-
 end
+
