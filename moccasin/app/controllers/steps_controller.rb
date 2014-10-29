@@ -8,8 +8,8 @@ class StepsController < ApplicationController
   def create
     @step = Step.new(step_params)
     if @step.save
-      current_user.steps << @step
-      redirect_to step_path @step
+      @activity << @step
+      redirect_to new_step_path(@activity)
     else
       redirect_to new_step_path
     end
