@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :activities
 
   get '/sign_up', to: 'users#new'
   get '/sign_in', to: 'sessions#new', as: 'new_session'
