@@ -5,7 +5,7 @@
 
   <%= f.label :author_name%>
   <%= f.text_field :author_name %><br />
-  <%= f.submit %>
+  <%= f.submit 'Publish Activity' %>
 
-    <%= link_to("Write First Step for Activity", new_step) %>
+    <%= link_to('Write First Step for Activity', new_step_path) %>
 <% end %>

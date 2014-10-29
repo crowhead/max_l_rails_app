@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :activities
+  resources :activities, :steps
   devise_for :users
 
 
