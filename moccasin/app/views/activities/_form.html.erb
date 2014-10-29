@@ -1,16 +1,10 @@
-
-
 <%= form_for @activity do |f| %>
 
-  <div>
-    <%= f.label :title%>
-    <%= f.text_field :title %>
-  </div><br />
+  <%= f.label :title%>
+  <%= f.text_field :title %><br />
 
-  <div>
-    <%= f.label :author_name%>
-    <%= f.text_field :author_name %>
-  </div><br />
+  <%= f.label :author_name%>
+  <%= f.text_field :author_name %><br />
+  <%= f.submit %>
 
-    <%= f.submit %>
 <% end %>
