@@ -3,6 +3,7 @@ class ActivitiesController < ApplicationController
 
 
   def index
+    @user_activities = current_user.activities
   end
 
   def new
@@ -27,6 +28,8 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
+    Activity.destroy(params[:id])
+    redirect_to activities_path
   end
 
   private

@@ -5,8 +5,6 @@
 
     <%= link_to('Create New Activity', new_activity_path ) %>
 
-    <%= link_to('My Activities', @user.activities)
-
     <%= form_for :session, url: signout_path, method: 'delete' do |f| %>
       <%= current_user.email %>
     <%= f.submit 'Sign Out?', :class => 'button', id: 'signout' %>
