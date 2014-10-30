@@ -3,6 +3,12 @@ class ActivitiesController < ApplicationController
 
 
   def index
+    @user_activities = current_user.activities
+  end
+
+  def activitiesall
+    @activities = Activity.all
+    render :activitiesall
   end
 
   def new
@@ -20,13 +26,27 @@ class ActivitiesController < ApplicationController
   end
 
   def edit
+    @activity = Activity.find(params[:id])
+    @steps = Steps.find(:all)
+  end
 
+  def show
+    @activity = Activity.find(params[:id])
   end
 
   def update
+    @activity = Activity.find(params[:id])
+    if @activity.update_attributes(params[:activity])
+      redirect_to :action => 'show', :id => @activity
+    else
+      @steps = Step.find(:all)
+      render :action => 'edit'
+    end
   end
 
   def destroy
+    Activity.destroy(params[:id])
+    redirect_to activities_path
   end
 
   private

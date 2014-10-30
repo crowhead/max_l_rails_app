@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
+  resources :activities, :steps
   devise_for :users
-  resources :activities
 
-  get '/sign_up', to: 'users#new'
-  get '/sign_in', to: 'sessions#new', as: 'new_session'
-  delete '/signout', to: 'sessions#destroy'
+
+  devise_scope :user do
+    get '/sign_up', to: 'devise/registration#new'
+    get '/sign_in', to: 'devise/sessions#new', as: 'new_session'
+    delete '/signout', to: 'devise/sessions#destroy'
+  end
+  get '/activitiesall' => 'activities#activitiesall'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 

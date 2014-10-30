@@ -1,0 +1,9 @@
+<h1>Walk Two Moons in Someone Else's Moccasins</h1>
+<p>select an activity below to see the steps to completing the activity</p>
+<% @activities.each do |activity| %>
+<ul>
+  <li><%= link_to activity.title, activity %> - <%= activity.author_name %></li>
+</ul>
+<% end %>
+<%= link_to('Home', root_path) %>
+

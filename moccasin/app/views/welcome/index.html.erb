@@ -1,6 +1,23 @@
-<h1>Welcome to Moccasin!</h1>
-<h2>Take a walk in someone else's shoes!</h2>
-<%= link_to('Sign Up', new_user_registration_path ) %>
+<!-- Homepage for signed in users -->
+<% if user_signed_in? %>
+    <h1>Signed In as <%= link_to current_user.email %></h1>
+      <%= link_to('Browse All Activities', activitiesall_path) %><br />
+      <%= link_to 'Create New Activity', new_activity_path  %><br />
+      <%= link_to('View My Activities', activities_path) %>
+      <%= form_for :session, url: signout_path, method: 'delete' do |f| %>
+        <%= current_user.email %>
+        <%= f.submit 'Sign Out', :class => 'button', id: 'signout' %>
+      <% end %>
+  <% else %>
+
+<!-- Splash Page -->
+<h2>Welcome to Moccasin!</h2>
+<h3>Let's take a walk in someone else's shoes!</h3>
+
+<div>
+  <%= link_to('Sign Up', new_user_registration_path ) %>
 <p>or</p>
-<%= link_to('Sign In', user_session_path ) %>
+  <%= link_to('Sign In', user_session_path ) %>
 <p>and start sharing your own step-by-step guides to activities</p>
+</div>
+<% end %>

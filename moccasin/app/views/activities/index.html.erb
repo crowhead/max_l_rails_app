@@ -1,1 +1,13 @@
-<h1><%= @activity[:id] %>
+<h1><%= current_user.email%>'s Activities</h1>
+
+<% @user_activities.each do |activity| %>
+<ul>
+  <li>
+    <%= link_to activity.title, activity %>
+    by <%= activity.author_name %>
+  </li>
+</ul>
+<% end %>
+
+<%= link_to('Home', root_path) %>
+
