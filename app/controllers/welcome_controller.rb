@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
-  before_action :authenticate_user!
+  skip_filter :authenticate_user!
+
   def index
   end
-
 end
