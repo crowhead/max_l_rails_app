@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
    before_action :find_activity, only: [:show, :edit, :update, :destroy]
+   before_filter :authenticate_user!
 
 
   def index
