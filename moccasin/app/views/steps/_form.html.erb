@@ -1,10 +1,10 @@
 <%= form_for @step do |f| %>
 
-  <%= f.label :body%>
+  <% f.label :body%>
   <%= f.text_field :body %>
   <%= f.hidden_field :activity_id, :value => params[:format] %>
 
-<%= f.submit 'Create Next Step' %>
+<%= f.submit 'Create Next Step' %><br />
 <%= link_to('Back to Activity', @activity) %>
 
 <% end %>

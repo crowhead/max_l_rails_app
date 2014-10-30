@@ -2,10 +2,12 @@
 
 <% @user_activities.each do |activity| %>
 <ul>
-<li>
-  <%= activity.title %>
-  <%= activity.author_name %>
-</li>
+  <li>
+    <%= activity.title %>
+    <%= activity.author_name %>
+  </li>
 </ul>
 <% end %>
+
+<%= link_to('Home', root_path) %>
 
