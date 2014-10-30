@@ -1,0 +1,4 @@
+<h1>Walk Through the Forest of Activities</h1>
+<% @activities.each do |activity| %>
+<li><%= link_to activity.title, activity %> - <%= activity.author_name %></li>
+<% end %>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/sign_in', to: 'devise/sessions#new', as: 'new_session'
     delete '/signout', to: 'devise/sessions#destroy'
   end
+  get '/activitiesall' => 'activities#activitiesall'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

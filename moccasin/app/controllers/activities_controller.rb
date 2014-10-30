@@ -6,6 +6,11 @@ class ActivitiesController < ApplicationController
     @user_activities = current_user.activities
   end
 
+  def activitiesall
+    @activities = Activity.all
+    render :activitiesall
+  end
+
   def new
     @activity = Activity.new
   end
