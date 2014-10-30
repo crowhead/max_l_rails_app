@@ -1,3 +1,4 @@
+require 'pry'
 class StepsController < ApplicationController
     before_action :find_step, only: [:show, :edit, :update, :destroy]
 
@@ -8,23 +9,27 @@ class StepsController < ApplicationController
   def create
     @step = Step.new(step_params)
     if @step.save
-      @activity << @step
-      redirect_to new_step_path(@activity)
+      redirect_to activity_path(@step.activity_id)
     else
       redirect_to new_step_path
     end
   end
 
   def edit
-
   end
 
   def destroy
-    Step.destroy(params[:id])
-    redirect_to Steps_path
+    @step.destroy
+    redirect_to steps_path
   end
 
   def update
+    if @step.update_attributes(step_params)
+      redirect_to :step => 'show', :id => @step
+    else
+      @steps = Step.find(:all)
+      render :step => 'edit'
+    end
 
   end
 
@@ -34,7 +39,7 @@ class StepsController < ApplicationController
     end
 
     def step_params
-      params.require(:step).permit(:body)
+      params.require(:step).permit(:body, :activity_id)
     end
 
 end

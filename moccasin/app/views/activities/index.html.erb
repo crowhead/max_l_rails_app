@@ -1,3 +1,11 @@
-<h1><%= @activity.title %></h1>
-<p><%= @activity.author_name %></p>
+<h1><%= current_user.email%>'s Activities</h1>
+
+<% @user_activities.each do |activity| %>
+<ul>
+<li>
+  <%= activity.title %>
+  <%= activity.author_name %>
+</li>
+</ul>
+<% end %>
 

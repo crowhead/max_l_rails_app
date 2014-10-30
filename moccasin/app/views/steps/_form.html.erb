@@ -1,12 +1,11 @@
-<%= form_for @activity do |f| %>
-<div>
+<%= form_for @step do |f| %>
+
   <%= f.label :body%>
   <%= f.text_field :body %>
-</div>
+  <%= f.hidden_field :activity_id, :value => params[:format] %>
 
-
-<%= f.submit, 'Create Next Step' %>
-<%= link_to('Back to Activity', @activity.activity_path) %>
+<%= f.submit 'Create Next Step' %>
+<%= link_to('Back to Activity', @activity) %>
 
 <% end %>
 

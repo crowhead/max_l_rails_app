@@ -1,7 +1,10 @@
 <h1><%= @activity.title %></h1>
 <p><%= @activity.author_name %></p>
-<% if @activity.class == Array %>
-  <ul>
-    <% @activity.each do |game| %>
-    <li><%= link_to step
 
+<ol>
+<% @activity.steps.each do |step| %>
+<li><%= step.body %></li>
+<% end %>
+</ol>
+
+<%= link_to('Add a Step for Activity', new_step_path(@activity)) %>
