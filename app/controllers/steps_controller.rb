@@ -1,4 +1,3 @@
-require 'pry'
 class StepsController < ApplicationController
     before_action :find_step, only: [:show, :edit, :update, :destroy]
 
