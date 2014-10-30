@@ -4,7 +4,7 @@
       <%= link_to('Browse All Activities', activitiesall_path) %><br />
       <%= link_to 'Create New Activity', new_activity_path  %><br />
       <%= link_to('View My Activities', activities_path) %>
-      <%= form_for :session, url: signout_path, method: 'delete' do |f| %>
+      <%= form_for :session, url: destroy_user_session_path, method: 'delete' do |f| %>
         <%= current_user.email %>
         <%= f.submit 'Sign Out', :class => 'button', id: 'signout' %>
       <% end %>

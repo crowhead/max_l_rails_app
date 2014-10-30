@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
   resources :activities, :steps
+
   devise_for :users
 
-
-  devise_scope :user do
-    get '/sign_up', to: 'devise/registration#new'
-    get '/sign_in', to: 'devise/sessions#new', as: 'new_session'
-    delete '/signout', to: 'devise/sessions#destroy'
-  end
   get '/activitiesall' => 'activities#activitiesall'
 
 
