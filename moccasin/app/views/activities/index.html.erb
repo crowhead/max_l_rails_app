@@ -3,8 +3,8 @@
 <% @user_activities.each do |activity| %>
 <ul>
   <li>
-    <%= activity.title %>
-    <%= activity.author_name %>
+    <%= link_to activity.title, activity %>
+    by <%= activity.author_name %>
   </li>
 </ul>
 <% end %>

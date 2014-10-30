@@ -1,6 +1,7 @@
 <!-- Homepage for signed in users -->
 <% if user_signed_in? %>
     <h1>Signed In as <%= link_to current_user.email %></h1>
+      <%= link_to('Browse All Activities', activitiesall_path) %><br />
       <%= link_to 'Create New Activity', new_activity_path  %><br />
       <%= link_to('View My Activities', activities_path) %>
       <%= form_for :session, url: signout_path, method: 'delete' do |f| %>
